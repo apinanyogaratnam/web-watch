@@ -1,6 +1,6 @@
 {
   "name": "@apinanyogaratnam/web-watch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "web watch analytics package",
   "main": "index.ts",
   "scripts": {
