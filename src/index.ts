@@ -1,13 +1,6 @@
 import axios from "axios";
 
-interface Props {
-    event_name: string;
-    event_data: {
-        [key: string]: any;
-    }
-}
-
-const event = async (props: Props) => {
+const event = async (name: string, data: { [key: string]: any }) => {
     const getLocation = (): Promise<GeolocationPosition> => {
         return new Promise((resolve, reject) => {
             navigator.geolocation.getCurrentPosition(
@@ -21,8 +14,8 @@ const event = async (props: Props) => {
 
     await axios.post("http://localhost:8000/analytics", {
         data: JSON.stringify({
-            event_name: props.event_name,
-            event_data: props.event_data,
+            event_name: name,
+            event_data: data,
             user_agent: navigator.userAgent,
             vendor: navigator.vendor,
             platform: navigator.platform,
